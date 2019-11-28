@@ -1,16 +1,18 @@
 //Gauss Elimination
 #include<iostream>
 #include<iomanip>
+#include <math.h>
+#include <conio.h>
 using namespace std;
 int main()
 {
     int n,i,j,k;
     cout.precision(4);        //set precision
     cout.setf(ios::fixed);
-    cout<<"\nEnter the no. of equations\n";        
+    cout<<"Introduceti numarul de ecuatii";        
     cin>>n;                //input the no. of equations
     float a[n][n+1],x[n];        //declare an array to store the elements of augmented-matrix    
-    cout<<"\nEnter the elements of the augmented-matrix row-wise:\n";
+    cout<<"\nIntroduceti elementele matricii pe liniile matricii\n";
     for (i=0;i<n;i++)
         for (j=0;j<=n;j++)    
             cin>>a[i][j];    //input the elements of array
@@ -23,7 +25,7 @@ int main()
                     a[i][j]=a[k][j];
                     a[k][j]=temp;
                 }
-    cout<<"\nThe matrix after Pivotisation is:\n";
+    cout<<"\nMatricea dupa elementul pivot este:\n";
     for (i=0;i<n;i++)            //print the new matrix
     {
         for (j=0;j<=n;j++)
@@ -38,7 +40,7 @@ int main()
                     a[k][j]=a[k][j]-t*a[i][j];    //make the elements below the pivot elements equal to zero or elimnate the variables
             }
     
-    cout<<"\n\nThe matrix after gauss-elimination is as follows:\n";
+    cout<<"\n\nMaricea dupa eliminarea lui Gauss\n";
     for (i=0;i<n;i++)            //print the new matrix
     {
         for (j=0;j<=n;j++)
@@ -53,8 +55,10 @@ int main()
                 x[i]=x[i]-a[i][j]*x[j];
         x[i]=x[i]/a[i][i];            //now finally divide the rhs by the coefficient of the variable to be calculated
     }
-    cout<<"\nThe values of the variables are as follows:\n";
+    cout<<"\nValorile variabilelor x ,y si z sunt: \n";
     for (i=0;i<n;i++)
         cout<<x[i]<<endl;            // Print the values of x, y,z,....    
+    
+    getch();
     return 0;
 }
